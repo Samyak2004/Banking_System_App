@@ -65,7 +65,10 @@ class Transaction:
 def main():
     st.title("Banking System")
 
-    accounts = {}
+    if 'accounts' not in st.session_state:
+        st.session_state.accounts = {}
+
+    accounts = st.session_state.accounts
 
     menu = ["Create Account", "Deposit Money", "Withdraw Money", "Transfer Money", "Calculate Interest (Savings Account)", "Display Account Info", "Exit"]
     choice = st.sidebar.selectbox("Menu", menu)
